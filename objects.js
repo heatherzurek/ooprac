@@ -96,11 +96,26 @@ function User(email, name){
     this.email = email;
     this.name = name;
     this.online = false;
-    this.login = function(){
-        console.log(this.email, 'has logged in');
-    }
     //dont pass online in as param because its always set to false to begin
+}
+
+User.prototype.login = function(){
+    this.online = true;
+    console.log(this.email, 'has logged in');
+}
+
+User.prototype.logout = function(){
+    this.online = false;
+    console.log(this.email, 'has logged out');
 }
 
 console.log(userOne);
 userTwo.login();
+
+//every obj type has a prototype 
+//like a map for the obj type
+//contains functionaly for that object type
+//methods arent being repeated in each user instance
+//defining once
+
+
