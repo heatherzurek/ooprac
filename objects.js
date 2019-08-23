@@ -57,10 +57,6 @@
 //     }
 // }
 
-var userOne = new User('ryu@ninjas.com', 'ryu', 29);
-var userTwo = new User('yoshi@ninjas.com', 'yoshi', 32);
-// var admin = new Admin('admin@admin.com', 'heather', 29);
-
 // var users = [userOne, userTwo, admin];
 
 // admin.deleteUser(userOne);
@@ -109,8 +105,28 @@ User.prototype.logout = function(){
     console.log(this.email, 'has logged out');
 }
 
-console.log(userOne);
-userTwo.login();
+function Admin(...args){
+    User.apply(this, args);
+    this.role = 'super admin';
+}
+
+Admin.prototype = Object.create(User.prototype);
+
+Admin.prototype.deleteUser = function(u){
+    users = users.filter(user => {
+        return user.email != u.email;
+    });
+};
+
+var userOne = new User('ryu@ninjas.com', 'ryu', 29);
+var userTwo = new User('yoshi@ninjas.com', 'yoshi', 32);
+var admin = new Admin('adamin@admin.com', 'heather', 29);
+
+var users = [userOne, userTwo, admin];
+
+//benefits of using protoypes is inheritance 
+
+console.log(admin);
 
 //every obj type has a prototype 
 //like a map for the obj type
