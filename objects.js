@@ -135,3 +135,30 @@ console.log(admin);
 //defining once
 
 
+// basic algorithm scriping 
+
+//convert celsius to fahrenheit
+
+function convertToF(celsius) {
+    let fahrenheit = (celsius * (9/5)) + 32;
+    return fahrenheit;
+}
+
+//reverse a string by chaining methods of built in functions
+function reverseString(str) {
+    return str = str.split("").reverse().join("");
+}
+reverseString("hello");
+
+//reverse a string with decrementing a For Loop
+//create an empty string that willl host the new created string
+//create the for loop
+
+function reverseString2(str) {
+    var newString = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+        newString += str[i];
+    }
+    return newString;
+}
+reverseString1('hello');
