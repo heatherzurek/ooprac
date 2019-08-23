@@ -161,4 +161,86 @@ function reverseString2(str) {
     }
     return newString;
 }
-reverseString1('hello');
+reverseString2('hello');
+
+//find the longest word in a string
+
+const str = 'the quick brown fox jumped over the lazy dog';
+
+const longestWord = (str) => {
+    const strArray = str.split(" ");
+    const sortedStrArray = strArray.sort(
+        (strA, strB) => {
+            return strB.length - strA.length;
+        }
+    );
+    return sortedStrArray[0];
+}
+
+console.log(longestWord(str));
+
+//split string into array
+//sort
+//find out largest word
+//return from the top of the array
+
+
+// function findLongestWord(str) {
+//     var arrayOfString = str.spilt(' ');
+//     var longestString = "";
+//     for (var i =0; i < arrayOfString.length; i++){
+//         if(longestString.length < arrayOfString[i].length){
+//             longestString = arrayOfString[i];
+//         }
+//     }
+//     str = longestString;
+//     return str.length;
+// }
+
+// findLongestWord('the quick brown fox jumped over the lazy dog');
+
+// //find most frequent item in an array
+
+// what is the diff between let and var
+//let was intro'd in 2015
+//let has block scope
+//not good if old browsers
+//not hoisted
+
+//var has function scope
+//will die at end of function
+//var gets hoisted
+
+
+//add something to beginnig of array and to the end 
+var myArray = ['a', 'b', 'c', 'd'];
+
+
+myArray.push('end');
+myArray.unshift('start');
+
+console.log(myArray);
+
+//es6 with spread operator
+
+var myArray2 = ['a', 'b', 'c', 'd'];
+
+myArray2 = ['start',...myArray2, 'end'];
+
+console.log(myArray2);
+
+//how to create private var in js
+
+function secretVar(){
+    var private = "super secret code";
+    return function(){
+        return private
+    }
+}
+
+var getPrivateVar = secretVar();
+
+console.log(getPrivateVar());
+
+
+
